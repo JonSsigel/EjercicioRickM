@@ -1,0 +1,36 @@
+<div class="row justify-content-center mt-3" *ngIf="character$ | async as character">
+    <div class="col-xs-12 col-sm-6 col-md-6 justify-content-center">
+        <div class="card">
+            <div class="image">
+                    <img
+                    [src]="character.image"
+                    [alt]="character.name"
+                    class="card-img-top">
+            </div>
+            <div class="card-inner">
+                <div class="header">
+                    <a [routerLink]="['/character-details',character.id]">
+                        <h3>
+                            {{character.name}}
+                        </h3>
+                    </a>
+                    <h5 class="text-muted">
+                        {{character.species}}
+                    </h5>
+                    <h5 class="text-muted">
+                        {{character.gender}}
+                    </h5>
+                    <small class="text-muted">
+                        {{character.status}}
+                    </small>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+
+</div>
+<button (click)="goBack()" class="btn btn-dark"
+> Back
+</button>

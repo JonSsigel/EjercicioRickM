@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4" *ngFor ="let character of characters"  infinite-scroll (scrolled)="scrollDown()">
+        <div class="card">
+            <div class="image">
+                <a [routerLink]="['/character-details',character.id]">
+                    <img
+                    [src]="character.image"
+                    [alt]="character.name"
+                    class="card-img-top">
+                </a>
+            </div>
+            <div class="card-inner">
+                <div class="header">
+                    <a [routerLink]="['/character-details',character.id]">
+                        <h3>
+                            {{character.name}}
+                        </h3>
+                    </a>
+                    <h5 class="text-muted">
+                        {{character.species}}
+                    </h5>
+                    <small class="text-muted">
+                        {{character.status}}
+                    </small>
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound" *ngIf="characters.length<=0">
+        <p>No results...</p>
+    </div>
+
+</div>
